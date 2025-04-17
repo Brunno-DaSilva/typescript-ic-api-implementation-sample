@@ -1,1 +1,1 @@
-# ts-ic-api-implementation-sample
+# Type Script API - Implementation Sample
