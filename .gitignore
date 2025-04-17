@@ -1,5 +1,6 @@
 # Node modules
 node_modules/
+# Payload response data
 payload_results/
 
 # Build output
