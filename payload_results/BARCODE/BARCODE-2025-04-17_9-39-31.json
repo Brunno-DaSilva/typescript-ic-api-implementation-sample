@@ -1,0 +1,52 @@
+{
+  "public_data": {
+    "version": "3.9.2",
+    "endpoint": "barcode-only"
+  },
+  "private_data": {
+    "results": {
+      "processResult": "DocumentProcessOK",
+      "extendedResultCode": "Y",
+      "firstName": "Always",
+      "middleName": "Age",
+      "lastName": "Twenty",
+      "address1": "3311 W. State Street",
+      "address2": "",
+      "city": "Boise",
+      "state": "ID",
+      "postalCode": "83707-1129",
+      "dateOfBirth": "01/01/2005",
+      "age": 20,
+      "heightCentimeters": "183",
+      "heightFeetInches": "6' 0\"",
+      "weightKilograms": "45",
+      "weightPounds": "100",
+      "eyeColor": "Black",
+      "hairColor": "Black",
+      "gender": "Female",
+      "socialSecurity": "",
+      "mediaType": "2D",
+      "uniqueID": 9943,
+      "testCard": true,
+      "dLIDNumberRaw": "DL001",
+      "dLIDNumberFormatted": "DL001",
+      "restrictions": "J",
+      "endorsements": "S",
+      "driverClass": "D",
+      "organDonor": "Yes",
+      "expirationDate": "10/23/2050",
+      "expired": "No",
+      "issueDate": "10/23/2019",
+      "issuingJurisdictionCvt": "Idaho",
+      "issuingJurisdictionAbbrv": "ID",
+      "isDuplicate": "",
+      "duplicateDate": "",
+      "docType": "",
+      "docCategory": "DL",
+      "isRealID": "Yes",
+      "stateIssuerMismatch": "No",
+      "transactionIdentifier": "b3f884c4-f727-4e68-b87a-46b74a821b08"
+    },
+    "transaction_id": "b3f884c4-f727-4e68-b87a-46b74a821b08"
+  }
+}

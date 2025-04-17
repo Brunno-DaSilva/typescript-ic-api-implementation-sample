@@ -1,0 +1,24 @@
+{
+  "public_data": {
+    "version": "3.9.2",
+    "endpoint": "start",
+    "capture_url": "https://capture-sandbox.intellicheck.com/?token=ac1e9ac7-be06-4302-8ba9-239d80da3562&version=default&language=en-us",
+    "capture_language": "en-us"
+  },
+  "private_data": {
+    "transaction_id": "ac1e9ac7-be06-4302-8ba9-239d80da3562",
+    "ttl": 10,
+    "send_link": {
+      "type": "sms",
+      "to": "+14693072016"
+    },
+    "capture_expiration_utc": "04-17-2025 14:27:08",
+    "signals": [
+      "idcheck",
+      "ocr_match",
+      "selfie",
+      "document_liveness_idrnd",
+      "ocr_scan"
+    ]
+  }
+}
