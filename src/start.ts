@@ -58,12 +58,12 @@ async function getStart(): Promise<void> {
 
     const responseSignatureLog: string | undefined =
       response.headers["signature"];
-    console.log("Log Info: Response Signature:", responseSignatureLog);
+    console.log("Log Info: ✍️ Response Signature:", responseSignatureLog);
 
     const responseBody: string = Buffer.from(response.data, "base64").toString(
       "utf8"
     );
-    console.log("Log Info: Response Body:", responseBody);
+    console.log("Log Info: 📄 Response Body:", responseBody);
 
     console.log(" Log Info: 💾 Save response to file");
 
