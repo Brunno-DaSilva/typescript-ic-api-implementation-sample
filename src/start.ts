@@ -2,14 +2,12 @@ import axios, { AxiosResponse } from "axios";
 import crypto from "crypto";
 import { saveResponseToFile } from "./utils/saveResponseToFile";
 import { StartPayload } from "./types/startPayload";
-import { SIGNALS, EN_US, DOCUMENT_TYPE } from "./utils/constants";
-import dotenv from "dotenv";
-dotenv.config();
+import { ENV, SIGNALS, EN_US, DOCUMENT_TYPE } from "./utils/constants";
 
 async function getStart(): Promise<void> {
   try {
-    const { CUSTOMER_ID, API_KEY, BASE_URL, END_POINT_START, MY_PHONE } =
-      process.env;
+    const { CUSTOMER_ID, API_KEY, BASE_URL, END_POINT_START, MY_PHONE } = ENV;
+    const { NA_DL } = DOCUMENT_TYPE;
 
     if (
       !CUSTOMER_ID ||
@@ -28,7 +26,7 @@ async function getStart(): Promise<void> {
       },
       private_data: {
         ttl: 10,
-        document_type: DOCUMENT_TYPE.NA_DL,
+        document_type: NA_DL,
         signals: SIGNALS,
         send_link: {
           type: "sms",

@@ -1,10 +1,8 @@
 import axios, { AxiosResponse } from "axios";
 import crypto from "crypto";
 import { saveResponseToFile } from "./utils/saveResponseToFile";
+import { ENV, EN_US } from "./utils/constants";
 import { ResultsPayload } from "./types/resultsPayload";
-
-import dotenv from "dotenv";
-dotenv.config();
 
 async function getResults(): Promise<void> {
   try {
@@ -14,7 +12,7 @@ async function getResults(): Promise<void> {
       BASE_URL,
       END_POINT_GET_RESULTS,
       TRANSACTION_ID_TWO,
-    } = process.env;
+    } = ENV;
 
     if (
       !CUSTOMER_ID ||
@@ -29,7 +27,7 @@ async function getResults(): Promise<void> {
 
     const payload: ResultsPayload = {
       public_data: {
-        capture_language: "en-us",
+        capture_language: EN_US,
       },
       private_data: {
         transaction_id: TRANSACTION_ID_TWO,

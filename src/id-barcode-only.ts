@@ -1,14 +1,14 @@
 import axios, { AxiosResponse } from "axios";
 import crypto from "crypto";
 import { saveResponseToFile } from "./utils/saveResponseToFile";
+import { ENV, EN_US } from "./utils/constants";
+
 import { BarcodePayload } from "./types/barcodePayload";
-import dotenv from "dotenv";
-dotenv.config();
 
 async function executeIDBarcodeOnly(): Promise<void> {
   try {
     const { CUSTOMER_ID, API_KEY, BASE_URL, END_POINT_BARCODE_ONLY, BARCODE } =
-      process.env;
+      ENV;
     if (
       !CUSTOMER_ID ||
       !API_KEY ||
@@ -22,7 +22,7 @@ async function executeIDBarcodeOnly(): Promise<void> {
 
     const payload: BarcodePayload = {
       public_data: {
-        capture_language: "en-us",
+        capture_language: EN_US,
       },
       private_data: {
         barcode: BARCODE,
