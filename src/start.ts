@@ -48,7 +48,7 @@ async function main(): Promise<void> {
     const base64EncodedPayload: string =
       Buffer.from(payloadString).toString("base64");
 
-    const hmac: crypto.Hmac = crypto.createHmac("sha256", API_KEY);
+    const hmac = crypto.createHmac("sha256", API_KEY);
     hmac.update(base64EncodedPayload);
 
     const signature: string = "sha256=" + hmac.digest("hex");
