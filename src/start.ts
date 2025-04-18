@@ -21,7 +21,7 @@ async function getStart(): Promise<void> {
       process.exit(1);
     }
 
-    const SIGNALS: string[] = [
+    const SIGNALS = [
       "idcheck",
       "ocr_match",
       "selfie",

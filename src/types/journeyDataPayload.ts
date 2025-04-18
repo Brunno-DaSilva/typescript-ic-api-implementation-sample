@@ -1,4 +1,4 @@
-export interface TransactionDataPayload {
+export interface JourneyDataPayload {
   public_data: {
     capture_language?: string;
   };
@@ -13,6 +13,7 @@ export interface TransactionDataPayload {
 }
 
 /**
+ *
  * Alert:  Pass only the search_after value;
  * Alert: no other private_data object properties are necessary.
  * Alert: Do not pass search_after on an initial request.
