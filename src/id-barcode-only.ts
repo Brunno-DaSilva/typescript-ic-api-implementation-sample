@@ -5,7 +5,7 @@ import { BarcodePayload } from "./types/barcodePayload";
 import dotenv from "dotenv";
 dotenv.config();
 
-async function main(): Promise<void> {
+async function executeIDBarcodeOnly(): Promise<void> {
   try {
     const { CUSTOMER_ID, API_KEY, BASE_URL, END_POINT_BARCODE_ONLY, BARCODE } =
       process.env;
@@ -67,4 +67,4 @@ async function main(): Promise<void> {
   }
 }
 
-main();
+executeIDBarcodeOnly();

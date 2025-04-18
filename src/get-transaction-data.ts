@@ -1,46 +1,36 @@
 import axios, { AxiosResponse } from "axios";
 import crypto from "crypto";
 import { saveResponseToFile } from "./utils/saveResponseToFile";
-import { StartPayload } from "./types/startPayload";
+import { TransactionDataPayload } from "./types/transactionDataPayload";
 import dotenv from "dotenv";
 dotenv.config();
 
-async function getStart(): Promise<void> {
+async function getTransactionData(): Promise<void> {
   try {
-    const { CUSTOMER_ID, API_KEY, BASE_URL, END_POINT_START, MY_PHONE } =
-      process.env;
-
+    const {
+      CUSTOMER_ID,
+      API_KEY,
+      BASE_URL,
+      END_POINT_GET_TRANS_DATA,
+      TRANSACTION_ID_ONE,
+    } = process.env;
     if (
       !CUSTOMER_ID ||
       !API_KEY ||
       !BASE_URL ||
-      !END_POINT_START ||
-      !MY_PHONE
+      !END_POINT_GET_TRANS_DATA ||
+      !TRANSACTION_ID_ONE
     ) {
       console.error("Log Error: ❌ Missing environment variables.");
       process.exit(1);
     }
 
-    const SIGNALS: string[] = [
-      "idcheck",
-      "ocr_match",
-      "selfie",
-      "document_liveness_idrnd",
-      "ocr_scan",
-    ];
-
-    const payload: StartPayload = {
+    const payload: TransactionDataPayload = {
       public_data: {
         capture_language: "en-us",
       },
       private_data: {
-        ttl: 10,
-        document_type: "na_dl",
-        signals: SIGNALS,
-        send_link: {
-          type: "sms",
-          to: MY_PHONE,
-        },
+        transaction_id: TRANSACTION_ID_ONE,
       },
     };
 
@@ -60,7 +50,7 @@ async function getStart(): Promise<void> {
     };
 
     const response: AxiosResponse<string> = await axios.post(
-      BASE_URL + END_POINT_START,
+      BASE_URL + END_POINT_GET_TRANS_DATA,
       base64EncodedPayload,
       { headers }
     );
@@ -76,10 +66,10 @@ async function getStart(): Promise<void> {
 
     console.log(" Log Info: 💾 Save response to file");
 
-    await saveResponseToFile(responseBody, "START");
+    await saveResponseToFile(responseBody, "BARCODE");
   } catch (error: any) {
     console.error("Log Error: ❌", error.message);
   }
 }
 
-getStart();
+getTransactionData();

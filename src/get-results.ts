@@ -6,7 +6,7 @@ import { ResultsPayload } from "./types/resultsPayload";
 import dotenv from "dotenv";
 dotenv.config();
 
-async function main(): Promise<void> {
+async function getResults(): Promise<void> {
   try {
     const {
       CUSTOMER_ID,
@@ -74,4 +74,4 @@ async function main(): Promise<void> {
   }
 }
 
-main();
+getResults();
