@@ -5,9 +5,8 @@ interface SendLink {
   to?: string;
 }
 
-type DocumentType = "na_dl" | "passport" | "other";
 interface PrivateData {
-  document_type?: DocumentType;
+  document_type?: string;
   location?: string;
   purpose?: string;
   return_capture_url?: boolean;

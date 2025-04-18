@@ -2,6 +2,7 @@ import axios, { AxiosResponse } from "axios";
 import crypto from "crypto";
 import { saveResponseToFile } from "./utils/saveResponseToFile";
 import { StartPayload } from "./types/startPayload";
+import { SIGNALS, EN_US, DOCUMENT_TYPE } from "./utils/constants";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -21,21 +22,13 @@ async function getStart(): Promise<void> {
       process.exit(1);
     }
 
-    const SIGNALS = [
-      "idcheck",
-      "ocr_match",
-      "selfie",
-      "document_liveness_idrnd",
-      "ocr_scan",
-    ];
-
     const payload: StartPayload = {
       public_data: {
-        capture_language: "en-us",
+        capture_language: EN_US,
       },
       private_data: {
         ttl: 10,
-        document_type: "na_dl",
+        document_type: DOCUMENT_TYPE.NA_DL,
         signals: SIGNALS,
         send_link: {
           type: "sms",
