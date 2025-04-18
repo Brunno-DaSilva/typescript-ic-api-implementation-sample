@@ -12,6 +12,7 @@
     "dev:get-results": "ts-node src/get-results.ts",
     "dev:get-transactions": "ts-node src/get-transactions.ts",
     "dev:get-journey": "ts-node src/get-journey.ts",
+    "dev:end-transaction": "ts-node src/end-transaction.ts",
     "dev:get-status": "ts-node src/get-status.ts"
   },
   "keywords": [],
