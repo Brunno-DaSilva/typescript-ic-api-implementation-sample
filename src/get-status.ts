@@ -2,32 +2,37 @@ import axios, { AxiosResponse } from "axios";
 import crypto from "crypto";
 import { saveResponseToFile } from "./utils/saveResponseToFile";
 import { ENV, EN_US } from "./utils/constants";
+import { StatusPayload } from "./types/statusPayload";
 
-import { BarcodePayload } from "./types/barcodePayload";
-
-async function executeIDBarcodeOnly(): Promise<void> {
+async function getStatus(): Promise<void> {
   try {
-    const { CUSTOMER_ID, API_KEY, BASE_URL, END_POINT_BARCODE_ONLY, BARCODE } =
-      ENV;
+    const {
+      CUSTOMER_ID,
+      API_KEY,
+      BASE_URL,
+      END_POINT_GET_STATUS,
+      TRANSACTION_ID_TWO,
+    } = ENV;
+
     if (
       !CUSTOMER_ID ||
       !API_KEY ||
       !BASE_URL ||
-      !END_POINT_BARCODE_ONLY ||
-      !BARCODE
+      !END_POINT_GET_STATUS ||
+      !TRANSACTION_ID_TWO
     ) {
       console.error("Log Error: ❌ Missing environment variables.");
       process.exit(1);
     }
 
-    const YOUR_BARCODE = BARCODE || "YOUR_BARCODE";
+    const YOUR_TRANSACTION_ID = TRANSACTION_ID_TWO || "YOUR_TRANSACTION_ID";
 
-    const payload: BarcodePayload = {
+    const payload: StatusPayload = {
       public_data: {
         capture_language: EN_US,
       },
       private_data: {
-        barcode: YOUR_BARCODE,
+        transaction_id: YOUR_TRANSACTION_ID,
       },
     };
 
@@ -47,7 +52,7 @@ async function executeIDBarcodeOnly(): Promise<void> {
     };
 
     const response: AxiosResponse<string> = await axios.post(
-      BASE_URL + END_POINT_BARCODE_ONLY,
+      BASE_URL + END_POINT_GET_STATUS,
       base64EncodedPayload,
       { headers }
     );
@@ -63,10 +68,10 @@ async function executeIDBarcodeOnly(): Promise<void> {
 
     console.log(" Log Info: 💾 Save response to file");
 
-    await saveResponseToFile(responseBody, "BARCODE");
+    await saveResponseToFile(responseBody, "RESULTS");
   } catch (error: any) {
     console.error("Log Error: ❌", error.message);
   }
 }
 
-executeIDBarcodeOnly();
+getStatus();

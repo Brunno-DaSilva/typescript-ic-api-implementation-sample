@@ -24,12 +24,14 @@ async function getTransactionData(): Promise<void> {
       process.exit(1);
     }
 
+    const YOUR_TRANSACTION_ID = TRANSACTION_ID_ONE || "YOUR_TRANSACTION_ID";
+
     const payload: TransactionDataPayload = {
       public_data: {
         capture_language: EN_US,
       },
       private_data: {
-        transaction_id: TRANSACTION_ID_ONE,
+        transaction_id: YOUR_TRANSACTION_ID,
       },
     };
 
