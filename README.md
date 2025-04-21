@@ -61,7 +61,7 @@ Add your local environment keys
 
 ▶️ 4. Run an API Call
 
-You can run any of the available API integrations. For example:
+You can run any of the available API integration scripts in the `package.json` file. For example:
 
 ```
 
@@ -69,5 +69,8 @@ npm run dev:start
 npm run dev:barcode-only
 npm run dev:get-results
 npm run dev:get-transactions
+npm run dev:get-journey
+npm run dev:end-transaction
+npm run dev:get-status
 
 ```
