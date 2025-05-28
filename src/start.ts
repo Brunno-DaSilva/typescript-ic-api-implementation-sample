@@ -2,7 +2,14 @@ import axios, { AxiosResponse } from "axios";
 import crypto from "crypto";
 import { saveResponseToFile } from "./utils/saveResponseToFile";
 import { StartPayload } from "./types/startPayload";
-import { ENV, SIGNALS, EN_US, DOCUMENT_TYPE } from "./utils/constants";
+import {
+  ENV,
+  SIGNALS,
+  EN_US,
+  FR_CA,
+  ES_MX,
+  DOCUMENT_TYPE,
+} from "./utils/constants";
 
 async function getStart(): Promise<void> {
   try {
@@ -28,9 +35,15 @@ async function getStart(): Promise<void> {
         ttl: 10,
         document_type: NA_DL,
         signals: SIGNALS,
+        return_capture_url: true,
         send_link: {
           type: "sms",
           to: MY_PHONE,
+          body: "Your Custom message here",
+        },
+
+        user_defined: {
+          my_session_key: "3E3E3E-E3E3E-CUSTOM_KEY",
         },
       },
     };
