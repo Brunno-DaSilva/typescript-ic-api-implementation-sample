@@ -67,7 +67,7 @@ async function getTransactionData(): Promise<void> {
 
     console.log(" Log Info: 💾 Save response to file");
 
-    await saveResponseToFile(responseBody, "BARCODE");
+    await saveResponseToFile(responseBody, "TRANSACTION_DATA");
   } catch (error: any) {
     console.error("Log Error: ❌", error.message);
   }
