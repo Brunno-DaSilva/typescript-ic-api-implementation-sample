@@ -52,3 +52,5 @@ export const DOCUMENT_TYPE = {
 };
 
 export const EN_US = "en-us";
+export const FR_CA = "fr-ca";
+export const ES_MX = "es-mx";
