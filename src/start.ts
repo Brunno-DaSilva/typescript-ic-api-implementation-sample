@@ -12,7 +12,7 @@ import {
 async function getStart(): Promise<void> {
   try {
     const { CUSTOMER_ID, API_KEY, BASE_URL, END_POINT_START, MY_PHONE } = ENV;
-    const { NA_DL } = DOCUMENT_TYPE;
+    const { NA_DL, PASSPORT, OTHER } = DOCUMENT_TYPE;
     const { EN_US, FR_CA, ES_MX } = CAPTURE_LANGUAGE;
 
     if (
@@ -32,7 +32,7 @@ async function getStart(): Promise<void> {
       },
       private_data: {
         ttl: 10,
-        document_type: NA_DL,
+        document_type: PASSPORT,
         signals: SIGNALS,
         return_capture_url: true,
         send_link: {

@@ -48,7 +48,7 @@ export const SIGNALS = [
 export const DOCUMENT_TYPE = {
   NA_DL: "na_dl",
   PASSPORT: "passport",
-  Other: "other",
+  OTHER: "other",
 } as const;
 
 export const CAPTURE_LANGUAGE = {

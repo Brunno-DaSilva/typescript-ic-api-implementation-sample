@@ -11,7 +11,7 @@ async function getResults(): Promise<void> {
       API_KEY,
       BASE_URL,
       END_POINT_GET_RESULTS,
-      TRANSACTION_ID_TWO,
+      TRANSACTION_ID_ONE,
     } = ENV;
     const { EN_US } = CAPTURE_LANGUAGE;
 
@@ -20,13 +20,13 @@ async function getResults(): Promise<void> {
       !API_KEY ||
       !BASE_URL ||
       !END_POINT_GET_RESULTS ||
-      !TRANSACTION_ID_TWO
+      !TRANSACTION_ID_ONE
     ) {
       console.error("Log Error: ❌ Missing environment variables.");
       process.exit(1);
     }
 
-    const YOUR_TRANSACTION_ID = TRANSACTION_ID_TWO || "YOUR_TRANSACTION_ID";
+    const YOUR_TRANSACTION_ID = TRANSACTION_ID_ONE || "YOUR_TRANSACTION_ID";
 
     const payload: ResultsPayload = {
       public_data: {
