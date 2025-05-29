@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 import crypto from "crypto";
 import { saveResponseToFile } from "./utils/saveResponseToFile";
-import { ENV, EN_US } from "./utils/constants";
+import { ENV, CAPTURE_LANGUAGE } from "./utils/constants";
 
 import { BarcodePayload } from "./types/barcodePayload";
 
@@ -9,6 +9,7 @@ async function executeIDBarcodeOnly(): Promise<void> {
   try {
     const { CUSTOMER_ID, API_KEY, BASE_URL, END_POINT_BARCODE_ONLY, BARCODE } =
       ENV;
+    const { EN_US } = CAPTURE_LANGUAGE;
     if (
       !CUSTOMER_ID ||
       !API_KEY ||

@@ -49,8 +49,10 @@ export const DOCUMENT_TYPE = {
   NA_DL: "na_dl",
   PASSPORT: "passport",
   Other: "other",
-};
+} as const;
 
-export const EN_US = "en-us";
-export const FR_CA = "fr-ca";
-export const ES_MX = "es-mx";
+export const CAPTURE_LANGUAGE = {
+  EN_US: "en-us",
+  FR_CA: "fr-ca",
+  ES_MX: "es-mx",
+} as const;

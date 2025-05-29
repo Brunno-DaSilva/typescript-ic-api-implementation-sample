@@ -5,16 +5,15 @@ import { StartPayload } from "./types/startPayload";
 import {
   ENV,
   SIGNALS,
-  EN_US,
-  FR_CA,
-  ES_MX,
   DOCUMENT_TYPE,
+  CAPTURE_LANGUAGE,
 } from "./utils/constants";
 
 async function getStart(): Promise<void> {
   try {
     const { CUSTOMER_ID, API_KEY, BASE_URL, END_POINT_START, MY_PHONE } = ENV;
     const { NA_DL } = DOCUMENT_TYPE;
+    const { EN_US, FR_CA, ES_MX } = CAPTURE_LANGUAGE;
 
     if (
       !CUSTOMER_ID ||
@@ -41,9 +40,8 @@ async function getStart(): Promise<void> {
           to: MY_PHONE,
           body: "Your Custom message here",
         },
-
         user_defined: {
-          my_session_key: "3E3E3E-E3E3E-CUSTOM_KEY",
+          my_session_key: "Cookie, session ID, or any other key",
         },
       },
     };

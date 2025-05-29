@@ -1,12 +1,11 @@
-type SendLinkMessageType = "sms" | "email";
 interface SendLink {
-  type?: SendLinkMessageType;
+  type?: "sms";
   body?: string;
   to?: string;
 }
 
 interface PrivateData {
-  document_type?: string;
+  document_type?: "na_dl" | "passport" | "other";
   location?: string;
   purpose?: string;
   return_images?: boolean;
@@ -23,7 +22,7 @@ interface PublicData {
   error_redirect_url?: string;
   results_url?: string;
   status_url?: string;
-  capture_language?: string;
+  capture_language?: "en-us" | "fr-ca" | "es-mx";
 }
 
 export interface StartPayload {

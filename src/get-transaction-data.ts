@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from "axios";
 import crypto from "crypto";
 import { saveResponseToFile } from "./utils/saveResponseToFile";
 import { TransactionDataPayload } from "./types/transactionDataPayload";
-import { ENV, EN_US } from "./utils/constants";
+import { ENV, CAPTURE_LANGUAGE } from "./utils/constants";
 
 async function getTransactionData(): Promise<void> {
   try {
@@ -13,6 +13,8 @@ async function getTransactionData(): Promise<void> {
       END_POINT_GET_TRANS_DATA,
       TRANSACTION_ID_ONE,
     } = ENV;
+    const { EN_US } = CAPTURE_LANGUAGE;
+
     if (
       !CUSTOMER_ID ||
       !API_KEY ||

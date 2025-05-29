@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 import crypto from "crypto";
 import { saveResponseToFile } from "./utils/saveResponseToFile";
-import { ENV, EN_US } from "./utils/constants";
+import { ENV, CAPTURE_LANGUAGE } from "./utils/constants";
 import { StatusPayload } from "./types/statusPayload";
 
 async function getStatus(): Promise<void> {
@@ -13,6 +13,7 @@ async function getStatus(): Promise<void> {
       END_POINT_GET_STATUS,
       TRANSACTION_ID_TWO,
     } = ENV;
+    const { EN_US } = CAPTURE_LANGUAGE;
 
     if (
       !CUSTOMER_ID ||
